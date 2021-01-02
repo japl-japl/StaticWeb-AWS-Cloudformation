@@ -1,0 +1,50 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Static website hosting with S3
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: a-proper-bucket-name
+
+Resources:
+  # Create the bucket to contain the website HTML
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      WebsiteConfiguration:
+        ErrorDocument: index.html
+        IndexDocument: index.html
+
+  # Create an IAM user with Access Keys to enable automated deployment of the website to this bucket
+  PublishUser:
+    Type: AWS::IAM::User
+    Properties:
+      Policies:
+        - PolicyName: !Sub publish-to-${S3Bucket}
+          PolicyDocument:
+            Statement:
+              - Action: s3:*
+                Effect: Allow
+                Resource:
+                  - !Sub arn:aws:s3:::${S3Bucket}
+                  - !Sub arn:aws:s3:::${S3Bucket}/*
+
+  PublishCredentials:
+    Type: AWS::IAM::AccessKey
+    Properties:
+      UserName: !Ref PublishUser
+
+Outputs:
+  Bucket:
+    Description: S3 Bucket Name
+    Value: !Ref S3Bucket
+  BucketUrl:
+    Description: S3 Bucket Url
+    Value: !GetAtt S3Bucket.WebsiteURL
+  AccessKeyId:
+    Description: S3 Access Key
+    Value: !Ref PublishCredentials
+  AccessKeySecret:
+    Description: S3 Secret Key
+    Value: !GetAtt PublishCredentials.SecretAccessKey
