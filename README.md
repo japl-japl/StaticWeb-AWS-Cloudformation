@@ -74,4 +74,4 @@ Save the file and then return to the S3 Management console tab and upload the mo
 
 Click the checkbox next to the index.html file and then the Actions menu and make the file public again
 
-Return to the browser tab with the website and refresh the page and you should see it updated to show the modified text
+Return to the browser tab with the website and refresh the page and you should see it updated to show the modified text.
