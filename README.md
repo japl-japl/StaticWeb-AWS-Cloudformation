@@ -26,14 +26,44 @@ For Index document enter index.html (you will need to enter this even though it 
 
 Click the Save button
 
-<h3>Task 2: Upload Content to your Bucket</h3>
+<h3>Task 2: Specify template</h3>
+
+Go to CloudFormation
+
+Click on Create Stack
+
+Template source: Upload a template file
+
+Upload a template file: Click Choose file and select the lab-network.yaml file you downloaded
+
+Click Next
+
+<h3>Task 3: Specify stack details</h3>
+
+Stack name:
+
+Click Next
+
+Step 3: Configure stack options
+
+Tags:
+Key:
+Value:
+
+Click Next
+
+<h3>Task 4: Review</h3>
+
+Click Create stack
+
+<h3>Task 5 Upload Content to your Bucket</h3>
 In this task, you will upload the static files to your bucket.
 
 In the S3 Management console click the Overview tab
 
 Click the Upload button and then the Add files button and select the 3 other files in this lab folder (index.html, script.js, style.css) and then click Upload
 
-<h3>Task 3: Upload Content to your Bucket</h3>
+<h3>Task 6: Upload Content to your Bucket</h3>
 Objects stored in Amazon S3 are private by default. This ensures that your organization's data remains secure. In this task, you will make the uploaded objects publicly accessible.
 
 Return to the browser tab that was opened earlier with the 404 Not Found error and refresh the page. You should now see a 403 Forbidden error message. This is because the files in the bucket are still set to private access (the default).
@@ -49,7 +79,7 @@ Click the Actions menu and select Make public then click the Make public button
 
 Return to the broswer tab that had the 403 Forbidden error and refresh the page. You should now see the website corresponding to the 3 files.
 
-<h3>Task 4: Update the Website</h3>
+<h3>Task 7: Update the Website</h3>
 You can make changes to the website by editing the HTML file and uploading it again to the Amazon S3 bucket.
 
 On your computer, open the index.html file (in this lab folder) in a text or code editor. You could use Notepad (Windows) or TextEdit (Mac) or any other tool
