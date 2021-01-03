@@ -8,23 +8,7 @@ You can easily host a static website or web-app on Amazon S3 by uploading the de
 <h3>Task 1: Create a bucket in Amazon S3</h3>
 In this task, you will create an Amazon S3 bucket and configure it for static website hosting.
 
-In the AWS Management Console on the Services menu, select S3, then click the Create Bucket button
-
-For the bucket name use firstname-lastname-bucket (replace firstname and lastname with your first name and last name). Bucket names must be globally unique
-
-Click the Next button, under Tags enter a tag with key set to Department and value set to Marketing, then click Next again
-
-Public access for buckets is disabled by default, however for websites the files will need to be public. Deselect all of the options and then click Next and then click the Create bucket button
-
-Click on the new bucket then click on the Properties tab, and click Static website hosting
-
-Click on the Endpoint link, you should receive a 404 Not Found error because we haven't placed any files in the bucket yet. Leave the tab open in your web-browser as we will return to it later
-
-Return to the tab that has the AWS Management Console, and click the Use this bucket to host a website radio button
-
-For Index document enter index.html (you will need to enter this even though it is already displayed)
-
-Click the Save button
+We will do this using AWS CloudFormation.
 
 <h3>Task 2: Specify template</h3>
 
@@ -34,7 +18,7 @@ Click on Create Stack
 
 Template source: Upload a template file
 
-Upload a template file: Click Choose file and select the lab-network.yaml file you downloaded
+Upload a template file: Click Choose file and select the .yaml file
 
 Click Next
 
